@@ -18,24 +18,32 @@
       padding: 0.5em 0;
     }
     table {
-      border-collapse: collapse;
-      width: 100%;
-      table-layout: fixed; /* 列幅を固定 */
-    }
+  width: 95%;
+  margin: 20px auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: clip;
+  table-layout: fixed;
+}
     th, td {
-      border: 1px solid #ccc;
-      padding: 4px;
-      text-align: center;
-      vertical-align: middle;
-    }
-    thead th {
-      position: sticky;
-      top: 0;
-      background-color: #eee;
-      z-index: 2;
-    }
+  border: none;
+  padding: 12px 15px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+thead th {
+  font-weight: 600;
+  position: sticky;
+  background-color: #eee;
+  top: 0;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
     /* colgroup で各列の幅を指定 */
-    col.monster-col { width: 28%; }
+    col.monster-col { width: 29%; }
     col.attr-col { width: 14%; }
     
     /* モンスター画像：1.5倍 */
