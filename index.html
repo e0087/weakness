@@ -4,23 +4,27 @@
   <meta charset="UTF-8">
   <title>モンスター弱点早見表</title>
   <style>
+    /* 余白をなくし、全体の文字サイズを1.5倍に */
     body {
+      margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
-      padding: 1em;
+      font-size: 1.5em;
       background-color: #f9f9f9;
     }
     h1 {
       text-align: center;
+      margin: 0;
+      padding: 0.5em 0;
     }
     table {
       border-collapse: collapse;
-      margin: 0 auto;
-      width: 80%;
-      max-width: 1200px;
+      width: 100%;
+      table-layout: fixed; /* 列幅を固定 */
     }
     th, td {
       border: 1px solid #ccc;
-      padding: 8px;
+      padding: 4px;
       text-align: center;
       vertical-align: middle;
     }
@@ -30,21 +34,45 @@
       background-color: #eee;
       z-index: 2;
     }
-    /* モンスター画像用スタイル */
+    /* colgroup で各列の幅を指定 */
+    col.monster-col { width: 28%; }
+    col.attr-col { width: 14%; }
+    
+    /* モンスター画像：1.5倍 */
     .monster-img {
-      width: 50px;
+      width: 75px;
       height: auto;
     }
-    /* 属性画像 */
+    /* 属性画像：1.5倍 */
     .attribute-img {
-      width: 40px;
+      width: 60px;
       height: auto;
       vertical-align: middle;
     }
-    /* 弱点画像 */
+    /* 弱点画像：1.5倍 */
     .weakness-img {
-      width: 40px;
+      width: 60px;
       height: auto;
+    }
+    /* ヘッダー内のラベル */
+    .header-label {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    /* ヘッダー内検索フォーム */
+    .header-search-container {
+      display: block;
+      margin-top: 2px;
+    }
+    .header-search-container input {
+      width: 90%;
+      padding: 2px;
+      font-size: 1.35em;
+    }
+    /* ソート用矢印 */
+    .arrow {
+      font-size: 0.8em;
+      margin-left: 4px;
     }
   </style>
 </head>
@@ -52,344 +80,310 @@
   <h1>モンスター弱点早見表</h1>
   <table>
     <colgroup>
-      <col style="width: 28%;">
-      <col style="width: 14%;">
-      <col style="width: 14%;">
-      <col style="width: 14%;">
-      <col style="width: 14%;">
-      <col style="width: 14%;">
+      <col class="monster-col">
+      <col class="attr-col">
+      <col class="attr-col">
+      <col class="attr-col">
+      <col class="attr-col">
+      <col class="attr-col">
     </colgroup>
     <thead>
       <tr>
-        <th>モンスター</th>
-        <th><img src="images/fire.png" alt="火属性" class="attribute-img"><br>火属性</th>
-        <th><img src="images/water.png" alt="水属性" class="attribute-img"><br>水属性</th>
-        <th><img src="images/thunder.png" alt="雷属性" class="attribute-img"><br>雷属性</th>
-        <th><img src="images/ice.png" alt="氷属性" class="attribute-img"><br>氷属性</th>
-        <th><img src="images/dragon.png" alt="龍属性" class="attribute-img"><br>龍属性</th>
+        <!-- モンスターセル内：ラベルと検索フォームを分離 -->
+        <th data-sort="name">
+          <div class="header-label">
+            モンスター <span class="arrow"></span>
+          </div>
+          <div class="header-search-container">
+            <input type="text" id="monsterSearch" placeholder="検索" onclick="event.stopPropagation()">
+          </div>
+        </th>
+        <th data-sort="fire">
+          <img src="images/fire.png" alt="火属性" class="attribute-img"><br>火属性
+          <span class="arrow"></span>
+        </th>
+        <th data-sort="water">
+          <img src="images/water.png" alt="水属性" class="attribute-img"><br>水属性
+          <span class="arrow"></span>
+        </th>
+        <th data-sort="thunder">
+          <img src="images/thunder.png" alt="雷属性" class="attribute-img"><br>雷属性
+          <span class="arrow"></span>
+        </th>
+        <th data-sort="ice">
+          <img src="images/ice.png" alt="氷属性" class="attribute-img"><br>氷属性
+          <span class="arrow"></span>
+        </th>
+        <th data-sort="dragon">
+          <img src="images/dragon.png" alt="龍属性" class="attribute-img"><br>龍属性
+          <span class="arrow"></span>
+        </th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>
-          <img src="images/chatakabra.png" alt="チャタカブラ" class="monster-img"><br>
-          チャタカブラ
-        </td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/kematorisu.png" alt="ケマトリス" class="monster-img"><br>
-          ケマトリス
-        </td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/labarabarina.png" alt="ラバラバリナ" class="monster-img"><br>
-          ラバラバリナ
-        </td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/babakonga.png" alt="ババコンガ" class="monster-img"><br>
-          ババコンガ
-        </td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/barahara.png" alt="バーラハーラ" class="monster-img"><br>
-          バーラハーラ
-        </td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/doshaguma.png" alt="ドシャグマ" class="monster-img"><br>
-          ドシャグマ
-        </td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/uztuna.png" alt="ウズトゥナ" class="monster-img"><br>
-          ウズトゥナ
-        </td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/ppupororu.png" alt="ププロポル" class="monster-img"><br>
-          ププロポル
-        </td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/redau.png" alt="レダウ" class="monster-img"><br>
-          レダウ
-        </td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/nerusukyura.png" alt="ネルスキュラ" class="monster-img"><br>
-          ネルスキュラ
-        </td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/hirabami.png" alt="ヒラバミ" class="monster-img"><br>
-          ヒラバミ
-        </td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/ajarakank.png" alt="アジャラカン" class="monster-img"><br>
-          アジャラカン
-        </td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/nuegudora.png" alt="ヌエグドラ" class="monster-img"><br>
-          ヌエグドラ
-        </td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/guardian_doshaguma.png" alt="護竜ドシャグマ" class="monster-img"><br>
-          護竜ドシャグマ
-        </td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/guardian_rioreus.png" alt="護竜リオレウス" class="monster-img"><br>
-          護竜リオレウス
-        </td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/guardian_alshubeld.png" alt="護竜アルシュベルド" class="monster-img"><br>
-          護竜アルシュベルド
-        </td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/jindahad.png" alt="ジンダハド" class="monster-img"><br>
-          ジンダハド
-        </td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/guardian_odogaron.png" alt="護竜オドガロン亜種" class="monster-img"><br>
-          護竜オドガロン亜種
-        </td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/siu.png" alt="シーウー" class="monster-img"><br>
-          シーウー
-        </td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/zoshia.png" alt="ゾシア" class="monster-img"><br>
-          ゾシア
-        </td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/yankukku.png" alt="イャンクック" class="monster-img"><br>
-          イャンクック
-        </td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/geryos.png" alt="ゲリョス" class="monster-img"><br>
-          ゲリョス
-        </td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/rioreus.png" alt="リオレウス" class="monster-img"><br>
-          リオレウス
-        </td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/rioreia.png" alt="リオレイア" class="monster-img"><br>
-          リオレイア
-        </td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/gurabimosu.png" alt="グラビモス" class="monster-img"><br>
-          グラビモス
-        </td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/dodoburango.png" alt="ドドブランゴ" class="monster-img"><br>
-          ドドブランゴ
-        </td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/guardian_anjanafu.png" alt="護竜アンジャナフ亜種" class="monster-img"><br>
-          護竜アンジャナフ亜種
-        </td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x.png" alt="✕" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/goa_magara.png" alt="ゴアマガラ" class="monster-img"><br>
-          ゴアマガラ
-        </td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x2.png" alt="✧2" class="weakness-img"></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/alshubeld.png" alt="アルシュベルド" class="monster-img"><br>
-          アルシュベルド
-        </td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-        <td><img src="images/weakness_x1.png" alt="✧1" class="weakness-img"></td>
-      </tr>
+      <!-- JavaScript により行が動的に生成されます -->
     </tbody>
   </table>
+
+  <script>
+    // ひらがなをカタカナに変換する補助関数
+    function hiraganaToKatakana(str) {
+      return str.replace(/[\u3041-\u3096]/g, function(match) {
+        return String.fromCharCode(match.charCodeAt(0) + 0x60);
+      });
+    }
+
+    // モンスター情報のデータ配列
+    const monsters = [
+      {
+        name: "チャタカブラ",
+        image: "images/chatakabra.png",
+        weaknesses: { fire: "✧1", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✕" }
+      },
+      {
+        name: "ケマトリス",
+        image: "images/kematorisu.png",
+        weaknesses: { fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" }
+      },
+      {
+        name: "ラバラバリナ",
+        image: "images/labarabarina.png",
+        weaknesses: { fire: "✧2", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" }
+      },
+      {
+        name: "ババコンガ",
+        image: "images/babakonga.png",
+        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" }
+      },
+      {
+        name: "バーラハーラ",
+        image: "images/barahara.png",
+        weaknesses: { fire: "✧1", water: "✕", thunder: "✧2", ice: "✧1", dragon: "✧1" }
+      },
+      {
+        name: "ドシャグマ",
+        image: "images/doshaguma.png",
+        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✧1" }
+      },
+      {
+        name: "ウズトゥナ",
+        image: "images/uztuna.png",
+        weaknesses: { fire: "✧1", water: "✕", thunder: "✧2", ice: "✧1", dragon: "✧1" }
+      },
+      {
+        name: "ププロポル",
+        image: "images/ppupororu.png",
+        weaknesses: { fire: "✧1", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" }
+      },
+      {
+        name: "レダウ",
+        image: "images/redau.png",
+        weaknesses: { fire: "✧1", water: "✧1", thunder: "✕", ice: "✧2", dragon: "✧1" }
+      },
+      {
+        name: "ネルスキュラ",
+        image: "images/nerusukyura.png",
+        weaknesses: { fire: "✧2", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" }
+      },
+      {
+        name: "ヒラバミ",
+        image: "images/hirabami.png",
+        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧2", ice: "✕", dragon: "✧1" }
+      },
+      {
+        name: "アジャラカン",
+        image: "images/ajarakank.png",
+        weaknesses: { fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" }
+      },
+      {
+        name: "ヌエグドラ",
+        image: "images/nuegudora.png",
+        weaknesses: { fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" }
+      },
+      {
+        name: "護竜ドシャグマ",
+        image: "images/guardian_doshaguma.png",
+        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧2", ice: "✧2", dragon: "✧2" }
+      },
+      {
+        name: "護竜リオレウス",
+        image: "images/guardian_rioreus.png",
+        weaknesses: { fire: "✕", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✧2" }
+      },
+      {
+        name: "護竜アルシュベルド",
+        image: "images/guardian_alshubeld.png",
+        weaknesses: { fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" }
+      },
+      {
+        name: "ジンダハド",
+        image: "images/jindahad.png",
+        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✧1" }
+      },
+      {
+        name: "護竜オドガロン亜種",
+        image: "images/guardian_odogaron.png",
+        weaknesses: { fire: "✧1", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" }
+      },
+      {
+        name: "シーウー",
+        image: "images/siu.png",
+        weaknesses: { fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✕" }
+      },
+      {
+        name: "ゾシア",
+        image: "images/zoshia.png",
+        weaknesses: { fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" }
+      },
+      {
+        name: "イャンクック",
+        image: "images/yankukku.png",
+        weaknesses: { fire: "✧1", water: "✧1", thunder: "✧2", ice: "✧2", dragon: "✕" }
+      },
+      {
+        name: "ゲリョス",
+        image: "images/geryos.png",
+        weaknesses: { fire: "✧2", water: "✧1", thunder: "✕", ice: "✧2", dragon: "✧1" }
+      },
+      {
+        name: "リオレウス",
+        image: "images/rioreus.png",
+        weaknesses: { fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" }
+      },
+      {
+        name: "リオレイア",
+        image: "images/rioreia.png",
+        weaknesses: { fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" }
+      },
+      {
+        name: "グラビモス",
+        image: "images/gurabimosu.png",
+        weaknesses: { fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" }
+      },
+      {
+        name: "ドドブランゴ",
+        image: "images/dodoburango.png",
+        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✕" }
+      },
+      {
+        name: "護竜アンジャナフ亜種",
+        image: "images/guardian_anjanafu.png",
+        weaknesses: { fire: "✧1", water: "✧1", thunder: "✕", ice: "✧2", dragon: "✧1" }
+      },
+      {
+        name: "ゴアマガラ",
+        image: "images/goa_magara.png",
+        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" }
+      },
+      {
+        name: "アルシュベルド",
+        image: "images/alshubeld.png",
+        weaknesses: { fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" }
+      }
+    ];
+    
+    let currentSortColumn = null;
+    let currentSortOrder = 1;
+    
+    function renderTable(data) {
+      const tbody = document.querySelector("table tbody");
+      tbody.innerHTML = "";
+      data.forEach(monster => {
+        const tr = document.createElement("tr");
+        const tdName = document.createElement("td");
+        const img = document.createElement("img");
+        img.src = monster.image;
+        img.alt = monster.name;
+        img.className = "monster-img";
+        tdName.appendChild(img);
+        tdName.appendChild(document.createElement("br"));
+        tdName.appendChild(document.createTextNode(monster.name));
+        tr.appendChild(tdName);
+        
+        const attributes = ["fire", "water", "thunder", "ice", "dragon"];
+        attributes.forEach(attr => {
+          const td = document.createElement("td");
+          const weakImg = document.createElement("img");
+          let weakVal = monster.weaknesses[attr];
+          if (weakVal === "✧1") {
+            weakImg.src = "images/weakness_x1.png";
+          } else if (weakVal === "✧2") {
+            weakImg.src = "images/weakness_x2.png";
+          } else {
+            weakImg.src = "images/weakness_x.png";
+          }
+          weakImg.alt = weakVal;
+          weakImg.className = "weakness-img";
+          td.appendChild(weakImg);
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+    }
+    
+    function weaknessScore(value) {
+      if (value === "✧2") return 2;
+      if (value === "✧1") return 1;
+      return 0;
+    }
+    
+    function filterAndSort() {
+      // ユーザー入力をひらがな→カタカナに変換
+      const rawSearchText = document.getElementById("monsterSearch").value;
+      const searchText = hiraganaToKatakana(rawSearchText);
+      
+      let filtered = monsters.filter(monster => {
+        // モンスター名もひらがな→カタカナに変換して比較
+        const nameKatakana = hiraganaToKatakana(monster.name);
+        return nameKatakana.includes(searchText);
+      });
+      
+      if (currentSortColumn !== null) {
+        filtered.sort((a, b) => {
+          let result = 0;
+          if (currentSortColumn === 0) {
+            result = a.name.localeCompare(b.name);
+          } else {
+            const attributes = ["fire", "water", "thunder", "ice", "dragon"];
+            let attr = attributes[currentSortColumn - 1];
+            result = weaknessScore(a.weaknesses[attr]) - weaknessScore(b.weaknesses[attr]);
+          }
+          return result * currentSortOrder;
+        });
+      }
+      renderTable(filtered);
+      updateSortIndicators();
+    }
+    
+    function sortByColumn(colIndex) {
+      if (currentSortColumn === colIndex) {
+        currentSortOrder = -currentSortOrder;
+      } else {
+        currentSortColumn = colIndex;
+        currentSortOrder = 1;
+      }
+      filterAndSort();
+    }
+    
+    function updateSortIndicators() {
+      const headers = document.querySelectorAll("thead th");
+      headers.forEach((th, index) => {
+        const arrow = th.querySelector(".arrow");
+        if (currentSortColumn === index) {
+          arrow.textContent = currentSortOrder === 1 ? "▲" : "▼";
+        } else {
+          arrow.textContent = "";
+        }
+      });
+    }
+    
+    document.getElementById("monsterSearch").addEventListener("input", filterAndSort);
+    document.querySelectorAll("thead th").forEach((th, index) => {
+      th.style.cursor = "pointer";
+      th.addEventListener("click", () => sortByColumn(index));
+    });
+    
+    renderTable(monsters);
+  </script>
 </body>
 </html>
