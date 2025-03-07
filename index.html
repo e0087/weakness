@@ -404,7 +404,7 @@ thead th {
     filtered.sort((a, b) => {
       let result = 0;
       if (currentSortColumn === 0) {
-        result = a.name.localeCompare(b.name);
+        result = a.yomi.localeCompare(b.yomi);
       } else {
         const attributes = ["fire", "water", "thunder", "ice", "dragon"];
         let attr = attributes[currentSortColumn - 1];
