@@ -78,11 +78,19 @@ thead th {
       padding: 2px;
       font-size: 1.35em;
     }
-    /* ソート用矢印 */
-    .arrow {
-      font-size: 0.5em;
-      margin-left: 2px;
-    }
+.sort-indicator {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+.sort-indicator .sort-up,
+.sort-indicator .sort-down {
+  display: block;
+  font-size: 0.4em;
+  line-height: 1;
+  color: grey; /* 初期状態はグレー */
+}
   </style>
 </head>
 <body>
@@ -101,7 +109,10 @@ thead th {
         <!-- モンスターセル内：ラベルと検索フォームを分離 -->
         <th data-sort="name">
           <div class="header-label">
-            モンスター <span class="arrow"></span>
+            モンスター <span class="sort-indicator">
+  <span class="sort-up">&#9650;</span>
+  <span class="sort-down">&#9660;</span>
+</span>
           </div>
           <div class="header-search-container">
             <input type="text" id="monsterSearch" placeholder="検索" onclick="event.stopPropagation()">
@@ -109,23 +120,38 @@ thead th {
         </th>
         <th data-sort="fire">
           <img src="images/fire.png" alt="火属性" class="attribute-img"><br>火属性
-          <span class="arrow"></span>
+          <span class="sort-indicator">
+  <span class="sort-up">&#9650;</span>
+  <span class="sort-down">&#9660;</span>
+</span>
         </th>
         <th data-sort="water">
           <img src="images/water.png" alt="水属性" class="attribute-img"><br>水属性
-          <span class="arrow"></span>
+          <span class="sort-indicator">
+  <span class="sort-up">&#9650;</span>
+  <span class="sort-down">&#9660;</span>
+</span>
         </th>
         <th data-sort="thunder">
           <img src="images/thunder.png" alt="雷属性" class="attribute-img"><br>雷属性
-          <span class="arrow"></span>
+          <span class="sort-indicator">
+  <span class="sort-up">&#9650;</span>
+  <span class="sort-down">&#9660;</span>
+</span>
         </th>
         <th data-sort="ice">
           <img src="images/ice.png" alt="氷属性" class="attribute-img"><br>氷属性
-          <span class="arrow"></span>
+          <span class="sort-indicator">
+  <span class="sort-up">&#9650;</span>
+  <span class="sort-down">&#9660;</span>
+</span>
         </th>
         <th data-sort="dragon">
           <img src="images/dragon.png" alt="龍属性" class="attribute-img"><br>龍属性
-          <span class="arrow"></span>
+          <span class="sort-indicator">
+  <span class="sort-up">&#9650;</span>
+  <span class="sort-down">&#9660;</span>
+</span>
         </th>
       </tr>
     </thead>
@@ -146,146 +172,175 @@ thead th {
     const monsters = [
       {
         name: "チャタカブラ",
+        yomi: "ちゃたかぶら",
         image: "images/chatakabra.png",
         weaknesses: { fire: "✧1", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✕" }
       },
       {
         name: "ケマトリス",
+        yomi: "けまとりす",
         image: "images/kematorisu.png",
         weaknesses: { fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" }
       },
       {
         name: "ラバラバリナ",
+        yomi: "らばらばりな",
         image: "images/labarabarina.png",
         weaknesses: { fire: "✧2", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" }
       },
       {
         name: "ババコンガ",
+        yomi: "ばばこんが",
         image: "images/babakonga.png",
         weaknesses: { fire: "✧2", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" }
       },
       {
         name: "バーラハーラ",
+        yomi: "ばーらはーら",
         image: "images/barahara.png",
         weaknesses: { fire: "✧1", water: "✕", thunder: "✧2", ice: "✧1", dragon: "✧1" }
       },
       {
         name: "ドシャグマ",
+        yomi: "どしゃぐま",
         image: "images/doshaguma.png",
         weaknesses: { fire: "✧2", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✧1" }
       },
       {
         name: "ウズトゥナ",
+        yomi: "うずとぅな",
         image: "images/uztuna.png",
         weaknesses: { fire: "✧1", water: "✕", thunder: "✧2", ice: "✧1", dragon: "✧1" }
       },
       {
         name: "ププロポル",
+        yomi: "ぷぷろぽる",
         image: "images/ppupororu.png",
         weaknesses: { fire: "✧1", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" }
       },
       {
         name: "レダウ",
+        yomi: "れだう",
         image: "images/redau.png",
         weaknesses: { fire: "✧1", water: "✧1", thunder: "✕", ice: "✧2", dragon: "✧1" }
       },
       {
         name: "ネルスキュラ",
+        yomi: "ねるすきゅら",
         image: "images/nerusukyura.png",
         weaknesses: { fire: "✧2", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" }
       },
       {
         name: "ヒラバミ",
+        yomi: "ひらばみ",
         image: "images/hirabami.png",
         weaknesses: { fire: "✧2", water: "✧1", thunder: "✧2", ice: "✕", dragon: "✧1" }
       },
       {
         name: "アジャラカン",
+        yomi: "あじゃらかん",
         image: "images/ajarakank.png",
         weaknesses: { fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" }
       },
       {
         name: "ヌエグドラ",
+        yomi: "ぬえぐどら",
         image: "images/nuegudora.png",
         weaknesses: { fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" }
       },
       {
         name: "護竜ドシャグマ",
+        yomi: "ごりゅうどしゃぐま",
         image: "images/guardian_doshaguma.png",
         weaknesses: { fire: "✧2", water: "✧1", thunder: "✧2", ice: "✧2", dragon: "✧2" }
       },
       {
         name: "護竜リオレウス",
+        yomi: "ごりゅうりおれうす",
         image: "images/guardian_rioreus.png",
         weaknesses: { fire: "✕", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✧2" }
       },
       {
         name: "護竜アルシュベルド",
+        yomi: "ごりゅうあるしゅべるど",
         image: "images/guardian_alshubeld.png",
         weaknesses: { fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" }
       },
       {
         name: "ジンダハド",
+        yomi: "じんだはど",
         image: "images/jindahad.png",
         weaknesses: { fire: "✧2", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✧1" }
       },
       {
         name: "護竜オドガロン亜種",
+        yomi: "ごりゅうおどがろんあしゅ",
         image: "images/guardian_odogaron.png",
         weaknesses: { fire: "✧1", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" }
       },
       {
         name: "シーウー",
+        yomi: "しーうー",
         image: "images/siu.png",
         weaknesses: { fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✕" }
       },
       {
         name: "ゾシア",
+        yomi: "ぞしあ",
         image: "images/zoshia.png",
         weaknesses: { fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" }
       },
       {
         name: "イャンクック",
+        yomi: "いゃんくっく",
         image: "images/yankukku.png",
         weaknesses: { fire: "✧1", water: "✧1", thunder: "✧2", ice: "✧2", dragon: "✕" }
       },
       {
         name: "ゲリョス",
+        yomi: "げりょす",
         image: "images/geryos.png",
         weaknesses: { fire: "✧2", water: "✧1", thunder: "✕", ice: "✧2", dragon: "✧1" }
       },
       {
         name: "リオレウス",
+        yomi: "りおれうす",
         image: "images/rioreus.png",
         weaknesses: { fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" }
       },
       {
         name: "リオレイア",
+        yomi: "りおれいあ",
         image: "images/rioreia.png",
         weaknesses: { fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" }
       },
       {
         name: "グラビモス",
+        yomi: "ぐらびもす",
         image: "images/gurabimosu.png",
         weaknesses: { fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" }
       },
       {
         name: "ドドブランゴ",
+        yomi: "どどぶらんご",
         image: "images/dodoburango.png",
         weaknesses: { fire: "✧2", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✕" }
       },
       {
         name: "護竜アンジャナフ亜種",
+        yomi: "ごりゅうあんじゃなふあしゅ",
         image: "images/guardian_anjanafu.png",
         weaknesses: { fire: "✧1", water: "✧1", thunder: "✕", ice: "✧2", dragon: "✧1" }
       },
       {
         name: "ゴアマガラ",
+        yomi: "ごあまがら",
         image: "images/goa_magara.png",
         weaknesses: { fire: "✧2", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" }
       },
       {
         name: "アルシュベルド",
+        yomi: "あるしゅべるど",
         image: "images/alshubeld.png",
         weaknesses: { fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" }
       }
@@ -337,32 +392,30 @@ thead th {
     }
     
     function filterAndSort() {
-      // ユーザー入力をひらがな→カタカナに変換
-      const rawSearchText = document.getElementById("monsterSearch").value;
-      const searchText = hiraganaToKatakana(rawSearchText);
-      
-      let filtered = monsters.filter(monster => {
-        // モンスター名もひらがな→カタカナに変換して比較
-        const nameKatakana = hiraganaToKatakana(monster.name);
-        return nameKatakana.includes(searchText);
-      });
-      
-      if (currentSortColumn !== null) {
-        filtered.sort((a, b) => {
-          let result = 0;
-          if (currentSortColumn === 0) {
-            result = a.name.localeCompare(b.name);
-          } else {
-            const attributes = ["fire", "water", "thunder", "ice", "dragon"];
-            let attr = attributes[currentSortColumn - 1];
-            result = weaknessScore(a.weaknesses[attr]) - weaknessScore(b.weaknesses[attr]);
-          }
-          return result * currentSortOrder;
-        });
+  const rawSearchText = document.getElementById("monsterSearch").value;
+  const searchText = rawSearchText.toLowerCase();
+  
+  let filtered = monsters.filter(monster => {
+    return monster.yomi.toLowerCase().includes(searchText) ||
+           monster.name.toLowerCase().includes(searchText);
+  });
+  
+  if (currentSortColumn !== null) {
+    filtered.sort((a, b) => {
+      let result = 0;
+      if (currentSortColumn === 0) {
+        result = a.name.localeCompare(b.name);
+      } else {
+        const attributes = ["fire", "water", "thunder", "ice", "dragon"];
+        let attr = attributes[currentSortColumn - 1];
+        result = weaknessScore(a.weaknesses[attr]) - weaknessScore(b.weaknesses[attr]);
       }
-      renderTable(filtered);
-      updateSortIndicators();
-    }
+      return result * currentSortOrder;
+    });
+  }
+  renderTable(filtered);
+  updateSortIndicators();
+}
     
     function sortByColumn(colIndex) {
       if (currentSortColumn === colIndex) {
@@ -375,16 +428,24 @@ thead th {
     }
     
     function updateSortIndicators() {
-      const headers = document.querySelectorAll("thead th");
-      headers.forEach((th, index) => {
-        const arrow = th.querySelector(".arrow");
-        if (currentSortColumn === index) {
-          arrow.textContent = currentSortOrder === 1 ? "▲" : "▼";
-        } else {
-          arrow.textContent = "";
-        }
-      });
+  const headers = document.querySelectorAll("thead th");
+  headers.forEach((th, index) => {
+    const sortUp = th.querySelector(".sort-up");
+    const sortDown = th.querySelector(".sort-down");
+    if (currentSortColumn === index) {
+      if (currentSortOrder === 1) {
+        sortUp.style.color = "black";
+        sortDown.style.color = "grey";
+      } else {
+        sortUp.style.color = "grey";
+        sortDown.style.color = "black";
+      }
+    } else {
+      sortUp.style.color = "grey";
+      sortDown.style.color = "grey";
     }
+  });
+}
     
     document.getElementById("monsterSearch").addEventListener("input", filterAndSort);
     document.querySelectorAll("thead th").forEach((th, index) => {
