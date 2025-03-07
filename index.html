@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>モンスター弱点早見表</title>
   <style>
-    /* 余白をなくし、全体の文字サイズを1.5倍に */
     body {
       margin: 0;
       padding: 0;
@@ -18,46 +17,46 @@
       padding: 0.5em 0;
     }
     table {
-  width: 95%;
-  margin: 20px auto;
-  border-collapse: separate;
-  border-spacing: 0;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: visible;
-  table-layout: fixed;
-}
+      width: 95%;
+      margin: 20px auto;
+      border-collapse: separate;
+      border-spacing: 0;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: visible;
+      table-layout: fixed;
+    }
     th, td {
-  border: 1px solid #ccc;
-  padding: 12px 15px;
-  text-align: center;
-  vertical-align: middle;
-}
+      border: 1px solid #ccc;
+      padding: 12px 15px;
+      text-align: center;
+      vertical-align: middle;
+    }
 
-thead th {
-  font-weight: 600;
-  position: sticky;
-  background-color: #eee;
-  top: 0;
-  z-index: 2;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+    thead th {
+      font-weight: 600;
+      position: sticky;
+      background-color: #eee;
+      top: 0;
+      z-index: 2;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
     /* colgroup で各列の幅を指定 */
     col.monster-col { width: 32%; }
     col.attr-col { width: 13%; }
     
-    /* モンスター画像：1.5倍 */
+    /* モンスター画像 */
     .monster-img {
       width: 95px;
       height: auto;
     }
-    /* 属性画像：1.5倍 */
+    /* 属性画像 */
     .attribute-img {
       width: 60px;
       height: auto;
       vertical-align: middle;
     }
-    /* 弱点画像：1.5倍 */
+    /* 弱点画像 */
     .weakness-img {
       width: 60px;
       height: auto;
@@ -74,23 +73,23 @@ thead th {
       font-size: 30px;
     }
     .header-search-container input {
-      width: 90%;
-      padding: 2px;
+      width: 75%;
+      padding: 2px 15px;
       font-size: 1.35em;
+      border-radius: 30px;
     }
-.sort-indicator {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 1px;
-}
-
-.sort-indicator .sort-up,
-.sort-indicator .sort-down {
-  display: block;
-  font-size: 0.5em;
-  line-height: 1;
-  color: grey; /* 初期状態はグレー */
-}
+    .sort-indicator {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 1px;
+    }
+    .sort-indicator .sort-up,
+    .sort-indicator .sort-down {
+      display: block;
+      font-size: 0.5em;
+      line-height: 1;
+      color: grey;
+    }
   </style>
 </head>
 <body>
@@ -106,68 +105,66 @@ thead th {
     </colgroup>
     <thead>
       <tr>
-        <!-- モンスターセル内：ラベルと検索フォームを分離 -->
         <th data-sort="name">
           <div class="header-label">
-            モンスター <span class="sort-indicator">
-  <span class="sort-up">&#9650;</span>
-  <span class="sort-down">&#9660;</span>
-</span>
+            モンスター 
+            <span class="sort-indicator">
+              <span class="sort-up">&#9650;</span>
+              <span class="sort-down">&#9660;</span>
+            </span>
           </div>
           <div class="header-search-container">
-            <input type="text" id="monsterSearch" placeholder="検索" onclick="event.stopPropagation()">
+            <input type="text" id="monsterSearch" placeholder="Search" onclick="event.stopPropagation()">
           </div>
         </th>
         <th data-sort="fire">
-          <img src="images/fire.png" alt="火属性" class="attribute-img"><br>火属性
+          <img src="images/fire.png" alt="火属性" class="attribute-img">
+          <br>火属性
           <span class="sort-indicator">
-  <span class="sort-up">&#9650;</span>
-  <span class="sort-down">&#9660;</span>
-</span>
+            <span class="sort-up">&#9650;</span>
+            <span class="sort-down">&#9660;</span>
+          </span>
         </th>
         <th data-sort="water">
-          <img src="images/water.png" alt="水属性" class="attribute-img"><br>水属性
-          <span class="sort-indicator">
-  <span class="sort-up">&#9650;</span>
-  <span class="sort-down">&#9660;</span>
-</span>
+          <img src="images/water.png" alt="水属性" class="attribute-img">
+          <br>水属性
+            <span class="sort-indicator">
+            <span class="sort-up">&#9650;</span>
+            <span class="sort-down">&#9660;</span>
+          </span>
         </th>
         <th data-sort="thunder">
-          <img src="images/thunder.png" alt="雷属性" class="attribute-img"><br>雷属性
+          <img src="images/thunder.png" alt="雷属性" class="attribute-img">
+          <br>雷属性
           <span class="sort-indicator">
-  <span class="sort-up">&#9650;</span>
-  <span class="sort-down">&#9660;</span>
-</span>
+            <span class="sort-up">&#9650;</span>
+            <span class="sort-down">&#9660;</span>
+          </span>
         </th>
         <th data-sort="ice">
-          <img src="images/ice.png" alt="氷属性" class="attribute-img"><br>氷属性
+          <img src="images/ice.png" alt="氷属性" class="attribute-img">
+          <br>氷属性
           <span class="sort-indicator">
   <span class="sort-up">&#9650;</span>
   <span class="sort-down">&#9660;</span>
 </span>
         </th>
         <th data-sort="dragon">
-          <img src="images/dragon.png" alt="龍属性" class="attribute-img"><br>龍属性
+          <img src="images/dragon.png" alt="龍属性" class="attribute-img">
+          <br>龍属性
           <span class="sort-indicator">
-  <span class="sort-up">&#9650;</span>
-  <span class="sort-down">&#9660;</span>
-</span>
+            <span class="sort-up">&#9650;</span>
+            <span class="sort-down">&#9660;</span>
+          </span>
         </th>
       </tr>
     </thead>
     <tbody>
-      <!-- JavaScript により行が動的に生成されます -->
+      <!-- JavaScript により行が動的に生成される -->
     </tbody>
   </table>
 
   <script>
-    // ひらがなをカタカナに変換する補助関数
-    function hiraganaToKatakana(str) {
-      return str.replace(/[\u3041-\u3096]/g, function(match) {
-        return String.fromCharCode(match.charCodeAt(0) + 0x60);
-      });
-    }
-
     // モンスター情報のデータ配列
     const monsters = [
       {
@@ -392,30 +389,30 @@ thead th {
     }
     
     function filterAndSort() {
-  const rawSearchText = document.getElementById("monsterSearch").value;
-  const searchText = rawSearchText.toLowerCase();
+      const rawSearchText = document.getElementById("monsterSearch").value;
+      const searchText = rawSearchText.toLowerCase();
+      
+      let filtered = monsters.filter(monster => {
+        return monster.yomi.toLowerCase().includes(searchText) ||
+               monster.name.toLowerCase().includes(searchText);
+      });
   
-  let filtered = monsters.filter(monster => {
-    return monster.yomi.toLowerCase().includes(searchText) ||
-           monster.name.toLowerCase().includes(searchText);
-  });
-  
-  if (currentSortColumn !== null) {
-    filtered.sort((a, b) => {
-      let result = 0;
-      if (currentSortColumn === 0) {
-        result = a.yomi.localeCompare(b.yomi);
-      } else {
-        const attributes = ["fire", "water", "thunder", "ice", "dragon"];
-        let attr = attributes[currentSortColumn - 1];
-        result = weaknessScore(a.weaknesses[attr]) - weaknessScore(b.weaknesses[attr]);
+      if (currentSortColumn !== null) {
+        filtered.sort((a, b) => {
+          let result = 0;
+          if (currentSortColumn === 0) {
+            result = a.yomi.localeCompare(b.yomi);
+          } else {
+            const attributes = ["fire", "water", "thunder", "ice", "dragon"];
+            let attr = attributes[currentSortColumn - 1];
+            result = weaknessScore(a.weaknesses[attr]) - weaknessScore(b.weaknesses[attr]);
+          }
+          return result * currentSortOrder;
+        });
       }
-      return result * currentSortOrder;
-    });
-  }
-  renderTable(filtered);
-  updateSortIndicators();
-}
+      renderTable(filtered);
+      updateSortIndicators();
+    }
     
     function sortByColumn(colIndex) {
       if (currentSortColumn === colIndex) {
@@ -428,24 +425,24 @@ thead th {
     }
     
     function updateSortIndicators() {
-  const headers = document.querySelectorAll("thead th");
-  headers.forEach((th, index) => {
-    const sortUp = th.querySelector(".sort-up");
-    const sortDown = th.querySelector(".sort-down");
-    if (currentSortColumn === index) {
-      if (currentSortOrder === 1) {
-        sortUp.style.color = "black";
-        sortDown.style.color = "grey";
-      } else {
-        sortUp.style.color = "grey";
-        sortDown.style.color = "black";
-      }
-    } else {
-      sortUp.style.color = "grey";
-      sortDown.style.color = "grey";
+      const headers = document.querySelectorAll("thead th");
+      headers.forEach((th, index) => {
+        const sortUp = th.querySelector(".sort-up");
+        const sortDown = th.querySelector(".sort-down");
+        if (currentSortColumn === index) {
+          if (currentSortOrder === 1) {
+            sortUp.style.color = "black";
+            sortDown.style.color = "grey";
+          } else {
+            sortUp.style.color = "grey";
+            sortDown.style.color = "black";
+          }
+        } else {
+          sortUp.style.color = "grey";
+          sortDown.style.color = "grey";
+        }
+      });
     }
-  });
-}
     
     document.getElementById("monsterSearch").addEventListener("input", filterAndSort);
     document.querySelectorAll("thead th").forEach((th, index) => {
