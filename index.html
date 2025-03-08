@@ -535,19 +535,54 @@
             fire: "△", water: "◯", thunder: "×", ice: "◯", dragon: "△"
           }
         },
-        weak: {
-          poison: "△",
-          paralysis: "◯",
-          sleep: "◯",
-          explosion: "◯",
-          faint: "◯"
-        }
+        weak: { poison: "△", paralysis: "◯", sleep: "◯", explosion: "◯", faint: "◯" }
       },
       {
         name: "ゴアマガラ",
         yomi: "ごあまがら",
         image: "images/goa_magara.png",
-        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" }
+        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" },
+        parts: {
+          頭: {slash: "◎", blunt: "◯", shot: "◯",
+            fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△"
+          },
+          触覚: {
+            slash: "◎", blunt: "◎", shot: "◯",
+            fire: "◯", water: "×", thunder: "△", ice: "△", dragon: "◯"
+          },
+          首: {
+            slash: "◯", blunt: "◯", shot: "△",
+            fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△"
+          },
+          胴: {slash: "△", blunt: "△", shot: "△",
+            ffire: "△", water: "×", thunder: "△", ice: "△", dragon: "△"
+          },
+          左前脚: {slash: "◯", blunt: "◯", shot: "△",
+            fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△"
+          },
+          右前脚: {slash: "◯", blunt: "◯", shot: "△",
+            fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△"
+          },
+          左翼: {slash: "△", blunt: "△", shot: "×",
+            fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△"
+          },
+          右翼: {slash: "△", blunt: "△", shot: "×",
+            fire: "△", water: "×△", thunder: "△", ice: "△", dragon: "△"
+          },
+          左翼脚: {slash: "△", blunt: "△", shot: "△",
+            fire: "◯", water: "×", thunder: "△", ice: "△", dragon: "△"
+          },
+          右翼脚: {slash: "△", blunt: "△", shot: "△",
+            fire: "◯", water: "×", thunder: "△", ice: "△", dragon: "△"
+          },
+          左後脚: {slash: "△", blunt: "△", shot: "△",
+            fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△"
+          },
+          右後脚: {slash: "△", blunt: "△", shot: "△",
+            fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△"
+          },
+        },
+        weak: { poison: "△", paralysis: "△", sleep: "△", explosion: "◯", faint: "△" }
       },
       {
         name: "アルシュベルド",
@@ -570,7 +605,7 @@
           左鎖翼刃: {slash: "◯", blunt: "◯", shot: "◯",
             fire: "×", water: "×", thunder: "×", ice: "×", dragon: "×"
           },
-          右鎖翼刃爪: {slash: "◯", blunt: "◯", shot: "◯",
+          右鎖翼刃: {slash: "◯", blunt: "◯", shot: "◯",
             fire: "×", water: "×", thunder: "×", ice: "×", dragon: "×"
           },
           左脚: {slash: "△", blunt: "△", shot: "△",
