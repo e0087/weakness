@@ -90,6 +90,53 @@
       line-height: 1;
       color: grey;
     }
+    /* モーダル背景 */
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: flex;             /* クリック時にflexになる */
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    /* モーダルコンテンツ */
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      /* 横幅をやや大きめに */
+      width: 80%;
+      max-width: 900px;  /* 必要に応じて拡大 */
+      /* 縦を1.5倍程度にしてスクロールできるように */
+      height: 70vh;  /* 必要に応じて 80vh などに変更 */
+      overflow-y: auto;
+      position: relative;
+    }
+    /* 閉じるボタン */
+    .close-button {
+      position: absolute;
+      top: 10px; 
+      right: 15px;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+    /* ポップアップ内テーブルの例 */
+    .detail-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    .detail-table th, .detail-table td {
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+      text-align: center;
+    }
+    .detail-table caption {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
   </style>
 </head>
 <body>
@@ -145,9 +192,9 @@
           <img src="images/ice.png" alt="氷属性" class="attribute-img">
           <br>氷属性
           <span class="sort-indicator">
-  <span class="sort-up">&#9650;</span>
-  <span class="sort-down">&#9660;</span>
-</span>
+            <span class="sort-up">&#9650;</span>
+            <span class="sort-down">&#9660;</span>
+          </span>
         </th>
         <th data-sort="dragon">
           <img src="images/dragon.png" alt="龍属性" class="attribute-img">
@@ -163,6 +210,13 @@
       <!-- JavaScript により行が動的に生成される -->
     </tbody>
   </table>
+  <div id="monsterModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2 id="modalMonsterName">モンスター名</h2>
+      <div id="modalDetails">詳細情報</div>
+    </div>
+  </div>
 
   <script>
     // モンスター情報のデータ配列
@@ -171,19 +225,103 @@
         name: "チャタカブラ",
         yomi: "ちゃたかぶら",
         image: "images/chatakabra.png",
-        weaknesses: { fire: "✧1", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✕" }
+        weaknesses: { fire: "✧1", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✕" },
+        parts: {
+          頭: {slash: "◎", blunt: "◎", shot: "◎",
+            fire: "△", water: "△", thunder: "◯", ice: "△", dragon: "×"
+          },
+          舌: {slash: "◎", blunt: "◎", shot: "◎",
+            fire: "△", water: "△", thunder: "◯", ice: "△", dragon: "×"
+          },
+          胴: {slash: "◯", blunt: "◯", shot: "◯",
+            fire: "△", water: "△", thunder: "◯", ice: "△", dragon: "×"
+          },
+          左前脚: {slash: "◎", blunt: "◎", shot: "◎",
+            fire: "△", water: "△", thunder: "△", ice: "△", dragon: "×"
+          },
+          右前脚: {slash: "◎", blunt: "◎", shot: "◎",
+            fire: "△", water: "△", thunder: "△", ice: "△", dragon: "×"
+          },
+          左後脚: {slash: "◎", blunt: "◎", shot: "◎",
+            fire: "×", water: "×", thunder: "◯", ice: "△", dragon: "×"
+          },
+          右後脚: {slash: "◎", blunt: "◎", shot: "◎",
+            fire: "×", water: "×", thunder: "◯", ice: "△", dragon: "×"
+          },
+          尻: {slash: "◯", blunt: "◯", shot: "◯",
+            fire: "△", water: "△", thunder: "◯", ice: "△", dragon: "×"
+          }
+        },
+        weak: { poison: "◎", paralysis: "◎", sleep: "◯", explosion: "◯", faint: "◎" }
       },
       {
         name: "ケマトリス",
         yomi: "けまとりす",
         image: "images/kematorisu.png",
-        weaknesses: { fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" }
+        weaknesses: { fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+        parts: {
+          頭: {slash: "◎", blunt: "◎", shot: "◎",
+            fire: "×", water: "◯", thunder: "△", ice: "△", dragon: "△"
+          },
+          胴: {slash: "◯", blunt: "◯", shot: "△",
+            fire: "×", water: "△", thunder: "△", ice: "△", dragon: "△"
+          },
+          左前脚: {slash: "◯", blunt: "△", shot: "△",
+            fire: "×", water: "△", thunder: "△", ice: "△", dragon: "△"
+          },
+          右前脚: {slash: "◯", blunt: "△", shot: "△",
+            fire: "×", water: "△", thunder: "△", ice: "△", dragon: "△"
+          },
+          左後脚: {slash: "◯", blunt: "△", shot: "△",
+            fire: "×", water: "△", thunder: "△", ice: "△", dragon: "△"
+          },
+          右後脚: {slash: "◯", blunt: "△", shot: "△",
+            fire: "×", water: "△", thunder: "△", ice: "△", dragon: "△"
+          },
+          尻尾: {slash: "◎", blunt: "◎", shot: "◎",
+            fire: "×", water: "◯", thunder: "△", ice: "△", dragon: "△"
+          }
+        },
+        weak: { poison: "◯", paralysis: "◯", sleep: "△", explosion: "△", faint: "△" }
       },
       {
         name: "ラバラバリナ",
         yomi: "らばらばりな",
         image: "images/labarabarina.png",
-        weaknesses: { fire: "✧2", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" }
+        weaknesses: { fire: "✧2", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" },
+        parts: {
+          頭: {slash: "◯", blunt: "◎", shot: "◯",
+            fire: "◯", water: "×", thunder: "△", ice: "△", dragon: "×"
+          },
+          胴: {slash: "◯", blunt: "◯", shot: "△",
+            fire: "△", water: "×", thunder: "△", ice: "△", dragon: "×"
+          },
+          左前脚: {slash: "◯", blunt: "◯", shot: "△",
+            fire: "△", water: "×", thunder: "△", ice: "△", dragon: "×"
+          },
+          右前脚: {slash: "◯", blunt: "◯", shot: "△",
+            fire: "△", water: "×", thunder: "△", ice: "△", dragon: "×"
+          },
+          左爪: {slash: "◯", blunt: "◯", shot: "◯",
+            fire: "△", water: "×", thunder: "△", ice: "△", dragon: "×"
+          },
+          右爪: {slash: "◯", blunt: "◯", shot: "◯",
+            fire: "△", water: "×", thunder: "△", ice: "△", dragon: "×"
+          },
+          左後脚: {slash: "◯", blunt: "◯", shot: "△",
+            fire: "△", water: "×", thunder: "△", ice: "△", dragon: "×"
+          },
+          右後脚: {slash: "◯", blunt: "◯", shot: "△",
+            fire: "△", water: "×", thunder: "△", ice: "△", dragon: "×"
+          },
+          花弁状態: {slash: "◎", blunt: "◎", shot: "◯",
+            fire: "◯", water: "×", thunder: "△", ice: "△", dragon: "×"
+          },
+          尻尾: {slash: "◎", blunt: "◎", shot: "◯",
+            fire: "◯", water: "×", thunder: "△", ice: "△", dragon: "×"
+          }
+        },
+        weak: { poison: "◯", paralysis: "△", sleep: "◯", explosion: "◯", faint: "◎" }
       },
       {
         name: "ババコンガ",
@@ -378,9 +516,88 @@
           td.appendChild(weakImg);
           tr.appendChild(td);
         });
-        tbody.appendChild(tr);
+        tr.addEventListener("click", () => {
+        // モンスター名
+        document.getElementById("modalMonsterName").textContent = monster.name;
+
+        let partsRows = "";
+        for (const partName in monster.parts) {
+          const part = monster.parts[partName];
+          partsRows += `
+            <tr>
+              <td class="nowrap">${partName}</td>
+              <td>${part.slash || "-"}</td>
+              <td>${part.blunt || "-"}</td>
+              <td>${part.shot || "-"}</td>
+              <td>${part.fire || "-"}</td>
+              <td>${part.water || "-"}</td>
+              <td>${part.thunder || "-"}</td>
+              <td>${part.ice || "-"}</td>
+              <td>${part.dragon || "-"}</td>
+            </tr>
+          `;
+        }        
+        // 「弱点・肉質・耐性」セクションの例
+        const detailsHTML = `        
+          <!-- 各部位への効きやすさ（テーブル） -->
+          <table class="detail-table">
+            <caption>各部位への効きやすさ</caption>
+            <thead>
+              <tr>
+                <th width="90">部位</th>
+                <th>斬</th>
+                <th>打</th>
+                <th>弾</th>
+                <th>火</th>
+                <th>水</th>
+                <th>雷</th>
+                <th>氷</th>
+                <th>龍</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${partsRows}
+            </tbody>
+          </table>
+          
+          <!-- 状態異常耐性（テーブル） -->
+          <table class="detail-table">
+            <caption>状態異常耐性</caption>
+            <thead>
+              <tr>
+                <th>毒</th>
+                <th>麻痺</th>
+                <th>睡眠</th>
+                <th>爆破</th>
+                <th>気絶</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 例: 頭 -->
+              <tr>
+                <td>${monster.weak?.poison || "-"}</td>
+                <td>${monster.weak?.paralysis || "-"}</td>
+                <td>${monster.weak?.sleep || "-"}</td>
+                <td>${monster.weak?.explosion || "-"}</td>
+                <td>${monster.weak?.faint || "-"}</td>
+              </tr>
+              <!-- 必要に応じて他の部位を追加 -->
+            </tbody>
+          </table>
+        `;
+        
+        // モーダルに反映して表示
+        document.getElementById("modalDetails").innerHTML = detailsHTML;
+        document.getElementById("monsterModal").style.display = "flex";
+      });
+          
+          tbody.appendChild(tr);
       });
     }
+
+    document.querySelector(".close-button").addEventListener("click", () => {
+    document.getElementById("monsterModal").style.display = "none";
+  });
     
     function weaknessScore(value) {
       if (value === "✧2") return 2;
