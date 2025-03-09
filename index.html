@@ -61,6 +61,11 @@
       width: 60px;
       height: auto;
     }
+    /* ポップアップ用弱点画像 */
+    .popup-weakness-img {
+      width: 35px;
+      height: auto;
+    }
     /* ヘッダー内のラベル */
     .header-label {
       display: inline-block;
@@ -119,7 +124,7 @@
       position: absolute;
       top: 10px; 
       right: 15px;
-      font-size: 1.5em;
+      font-size: 3em;
       cursor: pointer;
     }
     /* ポップアップ内テーブルの例 */
@@ -227,16 +232,16 @@
         image: "images/chatakabra.png",
         weaknesses: { fire: "✧1", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✕" },
         parts: {
-          頭: {slash: "◎", blunt: "◎", shot: "◎", fire: "△", water: "△", thunder: "◯", ice: "△", dragon: "×" },
-          舌: {slash: "◎", blunt: "◎", shot: "◎", fire: "△", water: "△", thunder: "◯", ice: "△", dragon: "×" },
-          胴: {slash: "◯", blunt: "◯", shot: "◯", fire: "△", water: "△", thunder: "◯", ice: "△", dragon: "×" },
-          左前脚: {slash: "◎", blunt: "◎", shot: "◎", fire: "△", water: "△", thunder: "△", ice: "△", dragon: "×" },
-          右前脚: {slash: "◎", blunt: "◎", shot: "◎", fire: "△", water: "△", thunder: "△", ice: "△", dragon: "×" },
-          左後脚: {slash: "◎", blunt: "◎", shot: "◎", fire: "×", water: "×", thunder: "◯", ice: "△", dragon: "×" },
-          右後脚: {slash: "◎", blunt: "◎", shot: "◎", fire: "×", water: "×", thunder: "◯", ice: "△", dragon: "×" },
-          尻: {slash: "◯", blunt: "◯", shot: "◯", fire: "△", water: "△", thunder: "◯", ice: "△", dragon: "×" }
+          頭: {slash: "✧4", blunt: "✧4", shot: "✧4", fire: "✧1", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✕" },
+          舌: {slash: "✧4", blunt: "✧4", shot: "✧4", fire: "✧1", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✕" },
+          胴: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✕" },
+          左前脚: {slash: "✧4", blunt: "✧4", shot: "✧4", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✕" },
+          右前脚: {slash: "✧4", blunt: "✧4", shot: "✧4", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✕" },
+          左後脚: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✕", thunder: "✧2", ice: "✧1", dragon: "✕" },
+          右後脚: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✕", thunder: "✧2", ice: "✧1", dragon: "✕" },
+          尻: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✕" }
         },
-        weak: { poison: "◎", paralysis: "◎", sleep: "◯", explosion: "◯", faint: "◎" }
+        weak: { poison: "✧3", paralysis: "✧3", sleep: "✧2", explosion: "✧2", faint: "✧3", depressive: "✧2" }
       },
       {
         name: "ケマトリス",
@@ -244,15 +249,15 @@
         image: "images/kematorisu.png",
         weaknesses: { fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
         parts: {
-          頭: {slash: "◎", blunt: "◎", shot: "◎", fire: "×", water: "◯", thunder: "△", ice: "△", dragon: "△" },
-          胴: {slash: "◯", blunt: "◯", shot: "△", fire: "×", water: "△", thunder: "△", ice: "△", dragon: "△" },
-          左前脚: {slash: "◯", blunt: "△", shot: "△", fire: "×", water: "△", thunder: "△", ice: "△", dragon: "△" },
-          右前脚: {slash: "◯", blunt: "△", shot: "△", fire: "×", water: "△", thunder: "△", ice: "△", dragon: "△" },
-          左後脚: {slash: "◯", blunt: "△", shot: "△", fire: "×", water: "△", thunder: "△", ice: "△", dragon: "△" },
-          右後脚: {slash: "◯", blunt: "△", shot: "△", fire: "×", water: "△", thunder: "△", ice: "△", dragon: "△" },
-          尻尾: {slash: "◎", blunt: "◎", shot: "◎", fire: "×", water: "◯", thunder: "△", ice: "△", dragon: "△" } 
+          頭: {slash: "✧4", blunt: "✧4", shot: "✧4", fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          胴: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左前脚: {slash: "✧3", blunt: "✧2", shot: "✧2", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右前脚: {slash: "✧3", blunt: "✧2", shot: "✧2", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左後脚: {slash: "✧3", blunt: "✧2", shot: "✧2", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右後脚: {slash: "✧3", blunt: "✧2", shot: "✧2", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          尻尾: {slash: "✧4", blunt: "✧4", shot: "✧4", fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" } 
        },
-        weak: { poison: "◯", paralysis: "◯", sleep: "△", explosion: "△", faint: "△" }
+        weak: { poison: "✧3", paralysis: "✧3", sleep: "✧2", explosion: "✧2", faint: "✧2", depressive: "✧2" }
       },
       {
         name: "ラバラバリナ",
@@ -260,36 +265,67 @@
         image: "images/labarabarina.png",
         weaknesses: { fire: "✧2", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" },
         parts: {
-          頭: {slash: "◯", blunt: "◎", shot: "◯", fire: "◯", water: "×", thunder: "△", ice: "△", dragon: "×" },
-          胴: {slash: "◯", blunt: "◯", shot: "△", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "×" },
-          左前脚: {slash: "◯", blunt: "◯", shot: "△", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "×" },
-          右前脚: {slash: "◯", blunt: "◯", shot: "△", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "×" },
-          左爪: {slash: "◯", blunt: "◯", shot: "◯", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "×" },
-          右爪: {slash: "◯", blunt: "◯", shot: "◯", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "×" },
-          左後脚: {slash: "◯", blunt: "◯", shot: "△", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "×" },
-          右後脚: {slash: "◯", blunt: "◯", shot: "△", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "×" },
-          花弁状態: {slash: "◎", blunt: "◎", shot: "◯", fire: "◯", water: "×", thunder: "△", ice: "△", dragon: "×" },
-          尻尾: {slash: "◎", blunt: "◎", shot: "◯", fire: "◯", water: "×", thunder: "△", ice: "△", dragon: "×" } 
+          頭: {slash: "✧3", blunt: "✧4", shot: "✧3", fire: "✧2", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" },
+          胴: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" },
+          左前脚: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" },
+          右前脚: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" },
+          左爪: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" },
+          右爪: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" },
+          左後脚: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" },
+          右後脚: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" },
+          花弁状態: {slash: "✧4", blunt: "✧4", shot: "✧3", fire: "✧2", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" },
+          尻尾: {slash: "✧4", blunt: "✧4", shot: "✧3", fire: "✧2", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" } 
        },
-        weak: { poison: "◯", paralysis: "△", sleep: "◯", explosion: "◯", faint: "◎" }
+        weak: { poison: "✧2", paralysis: "✧1", sleep: "✧2", explosion: "✧2", faint: "✧3", depressive: "✧2" }
       },
       {
         name: "ババコンガ",
         yomi: "ばばこんが",
         image: "images/babakonga.png",
-        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" }
+        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+        parts: {
+          頭: {slash: "✧4", blunt: "✧4", shot: "✧4", fire: "✧2", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          胴: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左前脚: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右前脚: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左後脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右後脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          尻尾: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+       },
+        weak: { poison: "✧2", paralysis: "✧2", sleep: "✧2", explosion: "✧2", faint: "✧2", depressive: "✧2" }
       },
       {
         name: "バーラハーラ",
         yomi: "ばーらはーら",
         image: "images/barahara.png",
-        weaknesses: { fire: "✧1", water: "✕", thunder: "✧2", ice: "✧1", dragon: "✧1" }
+        weaknesses: { fire: "✧1", water: "✕", thunder: "✧2", ice: "✧1", dragon: "✧1" },
+        parts: {
+          頭: {slash: "✧3", blunt: "✧4", shot: "✧3", fire: "✧1", water: "✕", thunder: "✧2", ice: "✧1", dragon: "✧1" },
+          首: {slash: "✧3", blunt: "✧4", shot: "✧3", fire: "✧1", water: "✕", thunder: "✧2", ice: "✧1", dragon: "✧1" },
+          胴: {slash: "✧2", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左前脚: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右前脚: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左後脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右後脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          尻尾: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+       },
+        weak: { poison: "✧2", paralysis: "✧3", sleep: "✧2", explosion: "✧2", faint: "✧2", depressive: "✧2" }
       },
       {
         name: "ドシャグマ",
         yomi: "どしゃぐま",
         image: "images/doshaguma.png",
-        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✧1" }
+        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✧1" },
+        parts: {
+          頭: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧2", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✧1" },
+          胴: {slash: "✧2", blunt: "✧3", shot: "✧2", fire: "✧2", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左前脚: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右前脚: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左後脚: {slash: "✧3", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右後脚: {slash: "✧3", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          尻尾: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✕" },
+       },
+        weak: { poison: "✧2", paralysis: "✧2", sleep: "✧2", explosion: "✧2", faint: "✧2", depressive: "✧2" }
       },
       {
         name: "ウズトゥナ",
@@ -297,23 +333,32 @@
         image: "images/uztuna.png",
         weaknesses: { fire: "✧1", water: "✕", thunder: "✧2", ice: "✧1", dragon: "✧1" },
         parts: {
-          頭: {slash: "◯", blunt: "◎", shot: "△", fire: "△", water: "×", thunder: "◯", ice: "△", dragon: "△" },
-          胴: {slash: "◯", blunt: "◯", shot: "◯", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△" },
-          左前脚: {slash: "◎", blunt: "◎", shot: "◯", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△" },
-          右前脚: {slash: "◎", blunt: "◎", shot: "◯", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△" },
-          左爪: {slash: "◯", blunt: "◯", shot: "◯", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△" },
-          右爪: {slash: "◯", blunt: "◯", shot: "◯", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△" },
-          左後脚: {slash: "◯", blunt: "◯", shot: "◯", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△" },
-          右後脚: {slash: "◯", blunt: "◯", shot: "◯", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△" },
-          尻尾: {slash: "◯", blunt: "◯", shot: "◯", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△" } 
+          頭: {slash: "✧3", blunt: "✧4", shot: "✧3", fire: "✧1", water: "✕", thunder: "✧2", ice: "✧1", dragon: "✧1" },
+          胴: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左前脚: {slash: "✧4", blunt: "✧4", shot: "✧3", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右前脚: {slash: "✧4", blunt: "✧4", shot: "✧3", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左後脚: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右後脚: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          尻尾: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" } 
        },
-        weak: { poison: "◯", paralysis: "◯", sleep: "◯", explosion: "◯", faint: "×" }
+        weak: { poison: "✧2", paralysis: "✧2", sleep: "✧2", explosion: "✧2", faint: "✧1", depressive: "✧2" }
       },
       {
         name: "ププロポル",
         yomi: "ぷぷろぽる",
         image: "images/ppupororu.png",
-        weaknesses: { fire: "✧1", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" }
+        weaknesses: { fire: "✧1", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+        parts: {
+          頭: {slash: "✧4", blunt: "✧4", shot: "✧4", fire: "✧1", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          胴: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左前脚: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右前脚: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          背中: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左後脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右後脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          尻尾: {slash: "✧4", blunt: "✧4", shot: "✧4", fire: "✧1", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" } 
+       },
+        weak: { poison: "✧1", paralysis: "✧2", sleep: "✧2", explosion: "✧2", faint: "✧2", depressive: "✧2" }
       },
       {
         name: "レダウ",
@@ -321,118 +366,323 @@
         image: "images/redau.png",
         weaknesses: { fire: "✧1", water: "✧1", thunder: "✕", ice: "✧2", dragon: "✧1" },
         parts: {
-          頭: { slash: "◎", blunt: "◎", shot: "◯", fire: "△", water: "△", thunder: "×", ice: "◯", dragon: "△" },
-          胴: {slash: "△", blunt: "△", shot: "△", fire: "△", water: "△", thunder: "×", ice: "△", dragon: "△" },
-          左翼: {slash: "◯", blunt: "◯", shot: "◯", fire: "△", water: "△", thunder: "×", ice: "△", dragon: "△" },
-          右翼: {slash: "◯", blunt: "◯", shot: "◯", fire: "△", water: "△", thunder: "×", ice: "△", dragon: "△" },
-          左脚: {slash: "△", blunt: "△", shot: "△", fire: "△", water: "△", thunder: "×", ice: "△", dragon: "△" },
-          右脚: {slash: "△", blunt: "△", shot: "△", fire: "△", water: "△", thunder: "×", ice: "△", dragon: "△" },
-          尻尾: {slash: "◯", blunt: "◯", shot: "◯", fire: "△", water: "△", thunder: "×", ice: "△", dragon: "△" } 
+          頭: { slash: "✧4", blunt: "✧4", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✕", ice: "✧2", dragon: "✧1" },
+          胴: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✕", ice: "✧1", dragon: "✧1" },
+          左翼: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✕", ice: "✧1", dragon: "✧1" },
+          右翼: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✕", ice: "✧1", dragon: "✧1" },
+          左脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✕", ice: "✧1", dragon: "✧1" },
+          右脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✕", ice: "✧1", dragon: "✧1" },
+          尻尾: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✕", ice: "✧1", dragon: "✧1" } 
        },
-        weak: { poison: "◯", paralysis: "△", sleep: "◯", explosion: "◯", faint: "△" }
+        weak: { poison: "✧2", paralysis: "✧1", sleep: "✧2", explosion: "✧2", faint: "✧1", depressive: "✧2" }
       },
       {
         name: "ネルスキュラ",
         yomi: "ねるすきゅら",
         image: "images/nerusukyura.png",
-        weaknesses: { fire: "✧2", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" }
+        weaknesses: { fire: "✧2", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" },
+        parts: {
+          頭: {slash: "✧3", blunt: "✧4", shot: "✧3", fire: "✧1", water: "✕", thunder: "✕", ice: "✧1", dragon: "✕" },
+          胴: {slash: "✧2", blunt: "✧2", shot: "✧3", fire: "✧2", water: "✕", thunder: "✕", ice: "✧1", dragon: "✕" },
+          左前脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧2", water: "✕", thunder: "✕", ice: "✧1", dragon: "✕" },
+          右前脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧2", water: "✕", thunder: "✕", ice: "✧1", dragon: "✕" },
+          左爪: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" },
+          右爪: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✕" },
+          腹部: {slash: "✧4", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✕", thunder: "✧2", ice: "✧1", dragon: "✕" },
+          毒トゲ: {slash: "✧2", blunt: "✧2", shot: "✧4", fire: "✧2", water: "✕", thunder: "✕", ice: "✧1", dragon: "✕" },
+          左後脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✕", thunder: "✕", ice: "✧1", dragon: "✕" },
+          右後脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✕", thunder: "✕", ice: "✧1", dragon: "✕" },
+          外套膜: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧2", water: "✕", thunder: "✕", ice: "✧1", dragon: "✕" }
+       },
+        weak: { poison: "✧2", paralysis: "✧3", sleep: "✧1", explosion: "✧2", faint: "✧2", depressive: "✧2" }
       },
       {
         name: "ヒラバミ",
         yomi: "ひらばみ",
         image: "images/hirabami.png",
-        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧2", ice: "✕", dragon: "✧1" }
+        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧2", ice: "✕", dragon: "✧1" },
+        parts: {
+          頭: {slash: "✧3", blunt: "✧4", shot: "✧3", fire: "✧2", water: "✧1", thunder: "✧2", ice: "✕", dragon: "✧1" },
+          首: {slash: "✧3", blunt: "✧4", shot: "✧3", fire: "✧2", water: "✧1", thunder: "✧2", ice: "✕", dragon: "✧1" },
+          胴: {slash: "✧3", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✧1" },
+          左前脚: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✧1" },
+          右前脚: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✧1" },
+          左後脚: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✧1" },
+          右後脚: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✧1" },
+          尻尾: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧2", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✧1" }
+       },
+        weak: { poison: "✧2", paralysis: "✧2", sleep: "✧3", explosion: "✧2", faint: "✧2", depressive: "✧2" }
       },
       {
         name: "アジャラカン",
         yomi: "あじゃらかん",
         image: "images/ajarakank.png",
-        weaknesses: { fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" }
+        weaknesses: { fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+        parts: {
+          頭: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左前脚: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右前脚: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          腹部: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          背中: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左後脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右後脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          尻尾: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          尻尾先端: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" }
+       },
+        weak: { poison: "✧2", paralysis: "✧2", sleep: "✧2", explosion: "✧2", faint: "✧2", depressive: "✧2" }
       },
       {
         name: "ヌエグドラ",
         yomi: "ぬえぐどら",
         image: "images/nuegudora.png",
-        weaknesses: { fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" }
+        weaknesses: { fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+        parts: {
+          頭: {slash: "✧4", blunt: "✧4", shot: "✧3", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          傘膜: {slash: "✧2", blunt: "✧3", shot: "✧2", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          口: {slash: "✧4", blunt: "✧4", shot: "✧4", fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          胴: {slash: "✧3", blunt: "✧4", shot: "✧3", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          触腕: {slash: "✧2", blunt: "✧3", shot: "✧2", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左第1腕: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右第1腕: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左第2腕: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右第2腕: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左第3腕: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右第3腕: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" }
+       },
+        weak: { poison: "✧2", paralysis: "✧1", sleep: "✧2", explosion: "✧1", faint: "✧2", depressive: "✧2" }
       },
       {
         name: "護竜ドシャグマ",
         yomi: "ごりゅうどしゃぐま",
         image: "images/guardian_doshaguma.png",
-        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧2", ice: "✧2", dragon: "✧2" }
+        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧2", ice: "✧2", dragon: "✧2" },
+        parts: {
+          頭: {slash: "✧3", blunt: "✧4", shot: "✧3", fire: "✧2", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✧1" },
+          胴: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧2", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左前脚: {slash: "✧4", blunt: "✧4", shot: "✧4", fire: "✧2", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✧2" },
+          右前脚: {slash: "✧4", blunt: "✧4", shot: "✧4", fire: "✧2", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✧2" },
+          左後脚: {slash: "✧3", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✧1" },
+          右後脚: {slash: "✧3", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✧1" },
+          尻毛: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✧1" }
+       },
+        weak: { poison: "✧2", paralysis: "✧2", sleep: "✧2", explosion: "✧2", faint: "✧2", depressive: "✕" }
       },
       {
         name: "護竜リオレウス",
         yomi: "ごりゅうりおれうす",
         image: "images/guardian_rioreus.png",
-        weaknesses: { fire: "✕", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✧2" }
+        weaknesses: { fire: "✕", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✧2" },
+        parts: {
+          頭: {slash: "✧4", blunt: "✧4", shot: "✧3", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" },
+          首: {slash: "✧2", blunt: "✧3", shot: "✧2", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" },
+          胴: {slash: "✧2", blunt: "✧1", shot: "✧2", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" },
+          左翼: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" },
+          右翼: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" },
+          左脚: {slash: "✧4", blunt: "✧3", shot: "✧3", fire: "✕", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✧2" },
+          右脚: {slash: "✧4", blunt: "✧3", shot: "✧3", fire: "✕", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✧2" },
+          尻尾: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✕", water: "✕", thunder: "✧1", ice: "✕", dragon: "✧1" }
+       },
+        weak: { poison: "✧1", paralysis: "✧2", sleep: "✧2", explosion: "✧2", faint: "✧2", depressive: "✕" }
       },
       {
         name: "護竜アルシュベルド",
         yomi: "ごりゅうあるしゅべるど",
         image: "images/guardian_alshubeld.png",
-        weaknesses: { fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" }
+        weaknesses: { fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+        parts: {
+          頭: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          胴: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左翼: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右翼: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左鎖翼刃: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✕", thunder: "✕", ice: "✕", dragon: "✕" },
+          右鎖翼刃: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✕", thunder: "✕", ice: "✕", dragon: "✕" },
+          左脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          尻尾: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" } 
+       },
+        weak: { poison: "✧2", paralysis: "✧2", sleep: "✧2", explosion: "✧2", faint: "✧2", depressive: "✕" }
       },
       {
         name: "ジンダハド",
         yomi: "じんだはど",
         image: "images/jindahad.png",
-        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✧1" }
+        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✧1" },
+        parts: {
+          頭: {slash: "✧4", blunt: "✧4", shot: "✧3", fire: "✧2", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✧1" },
+          首: {slash: "✧4", blunt: "✧4", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✧1" },
+          胴: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✧1" },
+          左前脚: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✧1" },
+          右前脚: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✧1" },
+          左後脚: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✧1" },
+          右後脚: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✧1" },
+          尻尾: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✧1" },
+          凍成殻_腹部: {slash: "✧4", blunt: "✧4", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✧1" },
+          大凍成殻霧出前: {slash: "✧1", blunt: "✧1", shot: "✧1", fire: "✕", water: "✕", thunder: "✕", ice: "✕", dragon: "✕" },
+          大凍成殻霧出後: {slash: "✧4", blunt: "✧4", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✧1" }
+       },
+        weak: { poison: "✧1", paralysis: "✧1", sleep: "✧1", explosion: "✧2", faint: "✧1", depressive: "✧2" }
       },
       {
         name: "護竜オドガロン亜種",
         yomi: "ごりゅうおどがろんあしゅ",
         image: "images/guardian_odogaron.png",
         weaknesses: { fire: "✧1", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
-        weak: { poison: "◯", paralysis: "◎", sleep: "◯", explosion: "◯", faint: "◯" }
+        parts: {
+          頭: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧2", water: "✧3", thunder: "✧2", ice: "✧2", dragon: "✧1" },
+          首: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          胴: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左前脚: {slash: "✧2", blunt: "✧3", shot: "✧2", fire: "✧2", water: "✧2", thunder: "✧2", ice: "✧2", dragon: "✧2" },
+          右前脚: {slash: "✧2", blunt: "✧3", shot: "✧2", fire: "✧2", water: "✧2", thunder: "✧2", ice: "✧2", dragon: "✧2" },
+          背中: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左後脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧2", water: "✧2", thunder: "✧2", ice: "✧2", dragon: "✧1" },
+          右後脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧2", water: "✧2", thunder: "✧2", ice: "✧2", dragon: "✧1" },
+          尻尾: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧2", water: "✧2", thunder: "✧2", ice: "✧2", dragon: "✧2" },
+          尻尾先端: {slash: "✧3", blunt: "✧2", shot: "✧3", fire: "✧1", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧2" }
+       },
+        weak: { poison: "✧2", paralysis: "✧3", sleep: "✧2", explosion: "✧2", faint: "✧2", depressive: "✕" }
       },
       {
         name: "シーウー",
         yomi: "しーうー",
         image: "images/siu.png",
-        weaknesses: { fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✕" }
+        weaknesses: { fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✕" },
+        parts: {
+          頭: {slash: "✧4", blunt: "✧4", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✕" },
+          傘膜: {slash: "✧2", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✕" },
+          口: {slash: "✧4", blunt: "✧4", shot: "✧4", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧3", dragon: "✕" },
+          胴: {slash: "✧2", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✕" },
+          触腕: {slash: "✧2", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✕" },
+          左第1腕: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✕" },
+          右第1腕: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✕" },
+          左第2腕: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✕" },
+          右第2腕: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✕" },
+          左第3腕: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✕" },
+          右第3腕: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✕" }
+       },
+        weak: { poison: "✧3", paralysis: "✧2", sleep: "✧1", explosion: "✧2", faint: "✧2", depressive: "✧2" }
       },
       {
         name: "ゾシア",
         yomi: "ぞしあ",
         image: "images/zoshia.png",
-        weaknesses: { fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" }
+        weaknesses: { fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" },
+        parts: {
+          頭: {slash: "✧4", blunt: "✧4", shot: "✧4", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" },
+          頭_白纏晶: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          首: {slash: "✧2", blunt: "✧2", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" },
+          胴: {slash: "✧2", blunt: "✧2", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左前脚: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右前脚: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左翼腕: {slash: "✧4", blunt: "✧4", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" },
+          右翼腕: {slash: "✧4", blunt: "✧4", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" },
+          左翼腕_白纏晶: {slash: "✧3", blunt: "✧3", shot: "✧1", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右翼腕_白纏晶: {slash: "✧3", blunt: "✧3", shot: "✧1", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左後脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右後脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          尻尾: {slash: "✧2", blunt: "✧2", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" } 
+       },
+        weak: { poison: "✧2", paralysis: "✧2", sleep: "✧2", explosion: "✧2", faint: "✧1", depressive: "✕" }
       },
       {
         name: "イャンクック",
         yomi: "いゃんくっく",
         image: "images/yankukku.png",
-        weaknesses: { fire: "✧1", water: "✧1", thunder: "✧2", ice: "✧2", dragon: "✕" }
+        weaknesses: { fire: "✧1", water: "✧1", thunder: "✧2", ice: "✧2", dragon: "✕" },
+        parts: {
+          頭: {slash: "✧3", blunt: "✧4", shot: "✧4", fire: "✧1", water: "✧1", thunder: "✧2", ice: "✧2", dragon: "✕" },
+          首: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧2", thunder: "✧2", ice: "✧3", dragon: "✧2" },
+          胴: {slash: "✧4", blunt: "✧4", shot: "✧4", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✕" },
+          左翼: {slash: "✧4", blunt: "✧3", shot: "✧4", fire: "✧1", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✕" },
+          右翼: {slash: "✧4", blunt: "✧3", shot: "✧4", fire: "✧1", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✕" },
+          左脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✕" },
+          右脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✕" },
+          尻尾: {slash: "✧4", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧2", dragon: "✕" } 
+       },
+        weak: { poison: "✧2", paralysis: "✧2", sleep: "✧2", explosion: "✧2", faint: "✧2", depressive: "✧2" }
       },
       {
         name: "ゲリョス",
         yomi: "げりょす",
         image: "images/geryos.png",
-        weaknesses: { fire: "✧2", water: "✧1", thunder: "✕", ice: "✧2", dragon: "✧1" }
+        weaknesses: { fire: "✧2", water: "✧1", thunder: "✕", ice: "✧2", dragon: "✧1" },
+        parts: {
+          頭: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧2", water: "✧1", thunder: "✕", ice: "✧2", dragon: "✧1" },
+          首: {slash: "✧3", blunt: "✧2", shot: "✧3", fire: "✧2", water: "✧1", thunder: "✕", ice: "✧1", dragon: "✧1" },
+          胴: {slash: "✧3", blunt: "✧2", shot: "✧2", fire: "✧2", water: "✧1", thunder: "✕", ice: "✧1", dragon: "✧1" },
+          左翼: {slash: "✧3", blunt: "✧2", shot: "✧2", fire: "✧2", water: "✧1", thunder: "✕", ice: "✧2", dragon: "✧1" },
+          右翼: {slash: "✧3", blunt: "✧2", shot: "✧2", fire: "✧2", water: "✧1", thunder: "✕", ice: "✧2", dragon: "✧1" },
+          左脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✕", ice: "✧1", dragon: "✧1" },
+          右脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✕", ice: "✧1", dragon: "✧1" },
+          尻尾: {slash: "✧4", blunt: "✧3", shot: "✧4", fire: "✧2", water: "✧1", thunder: "✕", ice: "✧1", dragon: "✧1" } 
+       },
+        weak: { poison: "✧1", paralysis: "✧2", sleep: "✧2", explosion: "✧2", faint: "✧2", depressive: "✧2" }
       },
       {
         name: "リオレウス",
         yomi: "りおれうす",
         image: "images/rioreus.png",
-        weaknesses: { fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" }
+        weaknesses: { fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+        parts: {
+          頭: {slash: "✧4", blunt: "✧4", shot: "✧4", fire: "✕", water: "✧1", thunder: "✧2", ice: "✧1", dragon: "✧2" },
+          首: {slash: "✧2", blunt: "✧3", shot: "✧2", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" },
+          胴: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" },
+          左翼: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" },
+          右翼: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" },
+          左脚: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✕", water: "✕", thunder: "✧1", ice: "✕", dragon: "✧1" },
+          右脚: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✕", water: "✕", thunder: "✧1", ice: "✕", dragon: "✧1" },
+          尻尾: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" } 
+       },
+        weak: { poison: "✧1", paralysis: "✧3", sleep: "✧3", explosion: "✧3", faint: "✧3", depressive: "✧2" }
       },
       {
         name: "リオレイア",
         yomi: "りおれいあ",
         image: "images/rioreia.png",
-        weaknesses: { fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" }
+        weaknesses: { fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" },
+        parts: {
+          頭: 	{slash: "✧4", blunt: "✧4", shot: "✧4", fire: "✕", water: "✧1", thunder: "✧3", ice: "✧1", dragon: "✧3" },
+          胴: 	{slash: "✧1", blunt: "✧1", shot: "✧1", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧3" },
+          左翼: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧3" },
+          右翼: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧3" },
+          左脚: {slash: "✧3", blunt: "✧3", shot: "✧1", fire: "✕", water: "✕", thunder: "✧1", ice: "✕", dragon: "✧1" },
+          右脚: {slash: "✧3", blunt: "✧3", shot: "✧1", fire: "✕", water: "✕", thunder: "✧1", ice: "✕", dragon: "✧1" },
+          尻尾: {slash: "✧3", blunt: "✧3", shot: "✧1", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧3" } 
+       },
+        weak: { poison: "✧1", paralysis: "✧2", sleep: "✧2", explosion: "✧2", faint: "✧2", depressive: "✧2" }
       },
       {
         name: "グラビモス",
         yomi: "ぐらびもす",
         image: "images/gurabimosu.png",
-        weaknesses: { fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" }
+        weaknesses: { fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+        parts: {
+          頭: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✕", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" },
+          首: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧2" },
+          腹部: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧2" },
+          背中: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左翼: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右翼: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          尻尾: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✕", water: "✧2", thunder: "✧1", ice: "✧1", dragon: "✧2" } 
+       },
+        weak: { poison: "✧2", paralysis: "✧2", sleep: "✧2", explosion: "✧2", faint: "✧2", depressive: "✧2" }
       },
       {
         name: "ドドブランゴ",
         yomi: "どどぶらんご",
         image: "images/dodoburango.png",
-        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✕" }
+        weaknesses: { fire: "✧2", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✕" },
+        parts: {
+          頭: {slash: "✧4", blunt: "✧4", shot: "✧4", fire: "✧2", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✕" },
+          胴: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧2", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✕" },
+          左前脚: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✕" },
+          右前脚: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✕" },
+          左後脚: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✕" },
+          右後脚: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✕" },
+          尻尾: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✕", dragon: "✕" }
+       },
+        weak: { poison: "✧2", paralysis: "✧2", sleep: "✧2", explosion: "✧2", faint: "✧2", depressive: "✧2" }
       },
       {
         name: "護竜アンジャナフ亜種",
@@ -440,17 +690,17 @@
         image: "images/guardian_anjanafu.png",
         weaknesses: { fire: "✧1", water: "✧1", thunder: "✕", ice: "✧2", dragon: "✧1" },
         parts: {
-          頭: {slash: "◎", blunt: "◎", shot: "◯", fire: "△", water: "◯", thunder: "×", ice: "◯", dragon: "◯" },
-          鼻: {slash: "◎", blunt: "◎", shot: "◯", fire: "△", water: "◯", thunder: "×", ice: "◯", dragon: "◯" },
-          首: {slash: "△", blunt: "△", shot: "×", fire: "△", water: "◯", thunder: "×", ice: "◯", dragon: "△" },
-          胴: {slash: "△", blunt: "△", shot: "◯", fire: "△", water: "△", thunder: "×", ice: "◯", dragon: "×" },
-          左翼: {slash: "◎", blunt: "◯", shot: "◯", fire: "△", water: "◯", thunder: "×", ice: "◯", dragon: "△" },
-          右翼: {slash: "◎", blunt: "◯", shot: "◯", fire: "△", water: "◯", thunder: "×", ice: "◯", dragon: "△" },
-          左脚: {slash: "△", blunt: "△", shot: "×", fire: "△", water: "△", thunder: "×", ice: "◯", dragon: "×" },
-          右脚: {slash: "△", blunt: "△", shot: "×", fire: "△", water: "△", thunder: "×", ice: "◯", dragon: "×" },
-          尻尾: {slash: "◎", blunt: "◎", shot: "◎", fire: "△", water: "◯", thunder: "×", ice: "◯", dragon: "△" } 
+          頭: {slash: "✧4", blunt: "✧4", shot: "✧3", fire: "✧1", water: "✧2", thunder: "✕", ice: "✧2", dragon: "✧2" },
+          鼻: {slash: "✧4", blunt: "✧4", shot: "✧3", fire: "✧1", water: "✧2", thunder: "✕", ice: "✧2", dragon: "✧2" },
+          首: {slash: "✧2", blunt: "✧2", shot: "✧1", fire: "✧1", water: "✧2", thunder: "✕", ice: "✧2", dragon: "✧1" },
+          胴: {slash: "✧2", blunt: "✧2", shot: "✧1", fire: "✧1", water: "✧1", thunder: "✕", ice: "✧2", dragon: "✕" },
+          左翼: {slash: "✧4", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧2", thunder: "✕", ice: "✧2", dragon: "✧1" },
+          右翼: {slash: "✧4", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧2", thunder: "✕", ice: "✧2", dragon: "✧1" },
+          左脚: {slash: "✧2", blunt: "✧2", shot: "✧1", fire: "✧1", water: "✧1", thunder: "✕", ice: "✧2", dragon: "✕" },
+          右脚: {slash: "✧2", blunt: "✧2", shot: "✧1", fire: "✧1", water: "✧1", thunder: "✕", ice: "✧2", dragon: "✕" },
+          尻尾: {slash: "✧4", blunt: "✧4", shot: "✧4", fire: "✧1", water: "✧2", thunder: "✧3", ice: "✧2", dragon: "✧1" } 
        },
-        weak: { poison: "△", paralysis: "◯", sleep: "◯", explosion: "◯", faint: "◯" }
+        weak: { poison: "✧1", paralysis: "✧2", sleep: "✧2", explosion: "✧2", faint: "✧2", depressive: "✕" }
       },
       {
         name: "ゴアマガラ",
@@ -458,20 +708,21 @@
         image: "images/goa_magara.png",
         weaknesses: { fire: "✧2", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧2" },
         parts: {
-          頭: {slash: "◎", blunt: "◯", shot: "◯", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△" },
-          触覚: {slash: "◎", blunt: "◎", shot: "◯", fire: "◯", water: "×", thunder: "△", ice: "△", dragon: "◯" },
-          首: {slash: "◯", blunt: "◯", shot: "△", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△" },
-          胴: {slash: "△", blunt: "△", shot: "△", ffire: "△", water: "×", thunder: "△", ice: "△", dragon: "△" },
-          左前脚: {slash: "◯", blunt: "◯", shot: "△", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△" },
-          右前脚: {slash: "◯", blunt: "◯", shot: "△", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△" },
-          左翼: {slash: "△", blunt: "△", shot: "×", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△" },
-          右翼: {slash: "△", blunt: "△", shot: "×", fire: "△", water: "×△", thunder: "△", ice: "△", dragon: "△" },
-          左翼脚: {slash: "△", blunt: "△", shot: "△", fire: "◯", water: "×", thunder: "△", ice: "△", dragon: "△" },
-          右翼脚: {slash: "△", blunt: "△", shot: "△", fire: "◯", water: "×", thunder: "△", ice: "△", dragon: "△" },
-          左後脚: {slash: "△", blunt: "△", shot: "△", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△" },
-          右後脚: {slash: "△", blunt: "△", shot: "△", fire: "△", water: "×", thunder: "△", ice: "△", dragon: "△" },
+          頭: {slash: "✧4", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          触角: {slash: "✧4", blunt: "✧4", shot: "✧3", fire: "✧2", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧2" },
+          首: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          胴: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左前脚: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右前脚: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左翼: {slash: "✧2", blunt: "✧2", shot: "✧1", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右翼: {slash: "✧2", blunt: "✧2", shot: "✧1", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左翼脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧2", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右翼脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧2", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左後脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右後脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          尻尾: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✕", thunder: "✧1", ice: "✧1", dragon: "✧1" }
         },
-        weak: { poison: "△", paralysis: "△", sleep: "△", explosion: "◯", faint: "△" }
+        weak: { poison: "✧1", paralysis: "✧1", sleep: "✧1", explosion: "✧2", faint: "✧1", depressive: "✧2" }
       },
       {
         name: "アルシュベルド",
@@ -479,17 +730,17 @@
         image: "images/alshubeld.png",
         weaknesses: { fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
         parts: {
-          頭: {slash: "◯", blunt: "◯", shot: "◯", fire: "△", water: "△", thunder: "△", ice: "△", dragon: "△" },
-          胴: {slash: "△", blunt: "△", shot: "△", ffire: "△", water: "△", thunder: "△", ice: "△", dragon: "△" },
-          左翼: {slash: "◯", blunt: "◯", shot: "△", fire: "△", water: "△", thunder: "△", ice: "△", dragon: "△" },
-          右翼: {slash: "◯", blunt: "◯", shot: "△", fire: "△", water: "△", thunder: "△", ice: "△", dragon: "△" },
-          左鎖翼刃: {slash: "◯", blunt: "◯", shot: "◯", fire: "×", water: "×", thunder: "×", ice: "×", dragon: "×" },
-          右鎖翼刃: {slash: "◯", blunt: "◯", shot: "◯", fire: "×", water: "×", thunder: "×", ice: "×", dragon: "×" },
-          左脚: {slash: "△", blunt: "△", shot: "△", fire: "△", water: "△", thunder: "△", ice: "△", dragon: "△" },
-          右脚: {slash: "△", blunt: "△", shot: "△", fire: "△", water: "△", thunder: "△", ice: "△", dragon: "△" },
-          尻尾: {slash: "◯", blunt: "◯", shot: "◯", fire: "△", water: "△", thunder: "△", ice: "△", dragon: "△" } 
+          頭: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          胴: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左翼: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右翼: {slash: "✧3", blunt: "✧3", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          左鎖翼刃: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✕", thunder: "✕", ice: "✕", dragon: "✕" },
+          右鎖翼刃: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✕", water: "✕", thunder: "✕", ice: "✕", dragon: "✕" },
+          左脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          右脚: {slash: "✧2", blunt: "✧2", shot: "✧2", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" },
+          尻尾: {slash: "✧3", blunt: "✧3", shot: "✧3", fire: "✧1", water: "✧1", thunder: "✧1", ice: "✧1", dragon: "✧1" } 
        },
-        weak: { poison: "◯", paralysis: "◯", sleep: "◯", explosion: "◯", faint: "◯" }
+        weak: { poison: "✧2", paralysis: "✧2", sleep: "✧2", explosion: "✧2", faint: "✧2", depressive: "✧2" }
       }
     ];
     
@@ -528,82 +779,105 @@
           td.appendChild(weakImg);
           tr.appendChild(td);
         });
+        function popupSymbolToImage(symbol) {
+          // 値が無い場合や想定外の場合はハイフン表示などにする
+          if (!symbol) {
+            return '-';
+          }
+          switch (symbol) {
+            case '✧4':
+              return '<img src="images/weakness_x4.png" alt="✧4" class="popup-weakness-img">';
+            case '✧3':
+              return '<img src="images/weakness_x3.png" alt="✧3" class="popup-weakness-img">';
+            case '✧2':
+              return '<img src="images/weakness_x2.png" alt="✧2" class="popup-weakness-img">';
+            case '✧1':
+              return '<img src="images/weakness_x1.png" alt="✧1" class="popup-weakness-img">';
+            case '✕':
+              return '<img src="images/weakness_x.png" alt="✕" class="popup-weakness-img">';
+            default:
+              // 想定外の文字が来た場合はそのまま表示 or ハイフン表示にする
+              return symbol;
+          }
+        }
         tr.addEventListener("click", () => {
-        // モンスター名
-        document.getElementById("modalMonsterName").textContent = monster.name;
-
-        let partsRows = "";
-        for (const partName in monster.parts) {
-          const part = monster.parts[partName];
-          partsRows += `
+          // モンスター名
+          document.getElementById("modalMonsterName").textContent = monster.name;
+  
+          let partsRows = "";
+          for (const partName in monster.parts) {
+            const part = monster.parts[partName];
+            partsRows += `
+              <tr>
+                <td class="nowrap">${partName}</td>
+                <td>${popupSymbolToImage(part.slash)}</td>
+                <td>${popupSymbolToImage(part.blunt)}</td>
+                <td>${popupSymbolToImage(part.shot)}</td>
+                <td>${popupSymbolToImage(part.fire)}</td>
+                <td>${popupSymbolToImage(part.water)}</td>
+                <td>${popupSymbolToImage(part.thunder)}</td>
+                <td>${popupSymbolToImage(part.ice)}</td>
+                <td>${popupSymbolToImage(part.dragon)}</td>
+              </tr>
+            `;
+          }
+          const weakTableRow = `
             <tr>
-              <td class="nowrap">${partName}</td>
-              <td>${part.slash || "-"}</td>
-              <td>${part.blunt || "-"}</td>
-              <td>${part.shot || "-"}</td>
-              <td>${part.fire || "-"}</td>
-              <td>${part.water || "-"}</td>
-              <td>${part.thunder || "-"}</td>
-              <td>${part.ice || "-"}</td>
-              <td>${part.dragon || "-"}</td>
+              <td>${popupSymbolToImage(monster.weak?.poison)}</td>
+              <td>${popupSymbolToImage(monster.weak?.paralysis)}</td>
+              <td>${popupSymbolToImage(monster.weak?.sleep)}</td>
+              <td>${popupSymbolToImage(monster.weak?.explosion)}</td>
+              <td>${popupSymbolToImage(monster.weak?.faint)}</td>
+              <td>${popupSymbolToImage(monster.weak?.depressive)}</td>
             </tr>
           `;
-        }        
-        // 「弱点・肉質・耐性」セクションの例
-        const detailsHTML = `        
-          <!-- 各部位への効きやすさ（テーブル） -->
-          <table class="detail-table">
-            <caption>各部位への効きやすさ</caption>
-            <thead>
-              <tr>
-                <th width="100">部位</th>
-                <th>斬</th>
-                <th>打</th>
-                <th>弾</th>
-                <th>火</th>
-                <th>水</th>
-                <th>雷</th>
-                <th>氷</th>
-                <th>龍</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${partsRows}
-            </tbody>
-          </table>
+          // 「弱点・肉質・耐性」セクションの例
+          const detailsHTML = `        
+            <!-- 各部位への効きやすさ（テーブル） -->
+            <table class="detail-table">
+              <caption>各部位への効きやすさ</caption>
+              <thead>
+                <tr>
+                  <th width="100">部位</th>
+                  <th>斬</th>
+                  <th>打</th>
+                  <th>弾</th>
+                  <th>火</th>
+                  <th>水</th>
+                  <th>雷</th>
+                  <th>氷</th>
+                  <th>龍</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${partsRows}
+              </tbody>
+            </table>
+            
+            <!-- 状態異常耐性（テーブル） -->
+            <table class="detail-table">
+              <caption>状態異常耐性</caption>
+              <thead>
+                <tr>
+                  <th>毒</th>
+                  <th>麻痺</th>
+                  <th>睡眠</th>
+                  <th>爆破</th>
+                  <th>気絶</th>
+                  <th>滅気</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${weakTableRow}
+              </tbody>
+            </table>
+          `;
           
-          <!-- 状態異常耐性（テーブル） -->
-          <table class="detail-table">
-            <caption>状態異常耐性</caption>
-            <thead>
-              <tr>
-                <th>毒</th>
-                <th>麻痺</th>
-                <th>睡眠</th>
-                <th>爆破</th>
-                <th>気絶</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- 例: 頭 -->
-              <tr>
-                <td>${monster.weak?.poison || "-"}</td>
-                <td>${monster.weak?.paralysis || "-"}</td>
-                <td>${monster.weak?.sleep || "-"}</td>
-                <td>${monster.weak?.explosion || "-"}</td>
-                <td>${monster.weak?.faint || "-"}</td>
-              </tr>
-              <!-- 必要に応じて他の部位を追加 -->
-            </tbody>
-          </table>
-        `;
-        
-        // モーダルに反映して表示
-        document.getElementById("modalDetails").innerHTML = detailsHTML;
-        document.getElementById("monsterModal").style.display = "flex";
-      });
-          
-          tbody.appendChild(tr);
+          // モーダルに反映して表示
+          document.getElementById("modalDetails").innerHTML = detailsHTML;
+          document.getElementById("monsterModal").style.display = "flex";
+        });
+        tbody.appendChild(tr);
       });
     }
 
@@ -677,6 +951,13 @@
     document.querySelectorAll("thead th").forEach((th, index) => {
       th.style.cursor = "pointer";
       th.addEventListener("click", () => sortByColumn(index));
+    });
+
+    document.getElementById("monsterModal").addEventListener("click", function(event) {
+      // クリックした要素がモーダルそのもの（背景）なら閉じる
+      if (event.target === this) {
+        this.style.display = "none";
+      }
     });
     
     renderTable(monsters);
